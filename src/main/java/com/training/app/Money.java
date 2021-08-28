@@ -1,6 +1,6 @@
 package com.training.app;
 
-public class Money {
+public abstract class Money {
 
     protected int amount;
 
@@ -9,4 +9,13 @@ public class Money {
         return amount == money.amount && getClass().equals(money.getClass());
     }
 
+    static Money dollar(int amout) {
+        return new Dollar(amout);
+    }
+
+    static Money franc(int amout) {
+        return new Franc(amout);
+    }
+
+    public abstract Money times(int multiplier);
 }
